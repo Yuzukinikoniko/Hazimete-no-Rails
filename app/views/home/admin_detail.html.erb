@@ -1,0 +1,30 @@
+<% content_for :menu do %>
+    <div class="work_btn">
+    <a href="/home">ホームへ戻る</a>
+    </div>
+<% end %>
+<% content_for :title do %>
+    <%= @user.name %>さんの勤怠状況
+<% end %>
+<div class="work">
+    <div class="work__inner">
+    <ul class="news-list">
+    <li class="item">
+    <span class="label">
+        <p class="date">勤怠状況</p>
+        <p class="title">日時</p>
+    </span>
+    </li>
+    <% @works.each do |work| %>
+    <li class="item">
+    <span class="label">
+        <p class="date"><%= work.work_start=="1" ? "出勤" : "退勤" %></p>
+        <p class="title"><%= work.created_at.strftime("%Y-%m-%d %H:%M:%S")%></p>
+        
+    </span>
+    </li>
+    <% end %>
+    <div><%= paginate @works %></div>
+    </ul>
+    </div>
+</div>

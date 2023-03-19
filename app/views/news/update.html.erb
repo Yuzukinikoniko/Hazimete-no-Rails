@@ -1,0 +1,21 @@
+<% content_for :menu do %>
+    <div class="work_btn">
+        <a href="/">ホームへ戻る</a>
+    </div>
+<% end %>
+<% content_for :title do %>
+    お知らせの編集
+<% end %>
+<div class="update">
+    <div class="update__inner">
+    <%= form_tag('/news_repost',method: :post) do %>
+        <table border>
+        <tr><th>表題</th><td><%= text_field_tag('title',@title) %></td>
+        <tr><th>内容</th><td><%= text_area(@body,'body',cols: 40, rows:20) %></td>
+        </table>
+        <%= hidden_field_tag 'body',@id %>
+        <%= submit_tag("確認") %>
+    <% end %>
+    </div>
+</div>
+    

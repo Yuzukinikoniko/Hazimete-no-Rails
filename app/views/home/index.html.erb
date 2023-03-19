@@ -1,0 +1,23 @@
+<% content_for :menu do %>
+    <div class="work_btn">
+    <a href="home_work_detail">勤怠状況詳細</a>
+    </div>
+    <% end %>
+<% content_for :title do %>
+    お知らせ    
+<% end %>
+<div class="news">
+<div class="news__inner">
+    <ul class="news-list">
+    <% @articles.each do |article| %>
+        <li class="item">
+            <a href="/news?id=<%= article.id %>" class="label">
+                <p class="date"><%= article.updated_at.strftime("%Y-%m-%d")%></p>
+                <p class="title"><%= article.title%></p>
+            </a>
+        </li>
+        <% end %>
+    </ul>
+    <div><%= paginate @articles %></div>
+</div>
+</div>

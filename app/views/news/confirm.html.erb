@@ -1,0 +1,20 @@
+<% content_for :menu do %>
+    <div class="work_btn">
+        <a href="/news_post">編集画面へ戻る</a>
+    </div>
+<% end %>
+<% content_for :title do %>
+    お知らせの確認
+<% end %>
+<div class="confirm">
+    <div class="confirm__inner">
+    <h2><%= @title %></h2>
+    <p><%= simple_format(@body) %></p>
+    <%= form_tag('/news_save',method: :post) do %>
+        <%= hidden_field_tag 'title',@title %>
+        <%= hidden_field_tag 'body',@body %>
+        <%= submit_tag("確認") %>    
+        <% end %>
+    </div>
+</div>
+    

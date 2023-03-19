@@ -1,0 +1,19 @@
+<% content_for :menu do %>
+    <div class="work_btn">
+        <a href="/news_admin">お知らせ一覧に戻る</a>
+    </div>
+<% end %>
+<% content_for :title do %>
+    お知らせの編集
+<% end %>
+<div class="update">
+    <div class="update__inner">
+    <%= form_tag('/news_update',method: :post) do %>
+        <p>タイトル</p><%= text_field_tag('title',@title,size:60) %>
+        <p>内容</p><%= text_area_tag 'body',@body,cols: 80, rows:30 %>
+        <%= hidden_field_tag 'id',@id %>
+        <%= submit_tag("編集") %>
+    <% end %>
+    </div>
+</div>
+    

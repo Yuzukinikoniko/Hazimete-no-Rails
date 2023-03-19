@@ -1,0 +1,15 @@
+<% content_for :menu do %>
+    <div class="work_btn">
+        <a href="/news_admin">お知らせ一覧に戻る</a>
+    </div>
+<% end %>
+<% content_for :title do %>
+    お知らせ
+<% end %>
+<div class="post">
+    <div class="post__inner">
+    <h2><%= @title %></h2>
+    <p><%= simple_format(@body) %></p>
+    </div>
+</div>
+    

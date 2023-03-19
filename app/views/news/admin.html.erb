@@ -1,0 +1,35 @@
+<% content_for :menu do %>
+    <div class="work_btn">
+        <a href="/">ホームへ戻る</a>
+    </div>
+<% end %>
+<% content_for :title do %>
+    お知らせ
+<% end %>
+<div class="admin">
+    <div class="admin__inner">
+    <ul class="news-list">
+    <li class="item">
+    <span class="label">
+        <p class="date">タイトル</p>
+        <p class="title">投稿日時</p>
+        <p class="title">編集</p>
+        <p class="title">削除</p>
+    </span>
+    </li>
+    <% @articles.each do |article| %>
+    <li class="item">
+    <span class="label">
+        <p class="date"><%= link_to(article.title,"/news_page?id=#{article.id}") %></p>
+        <p class="title"><%= article.created_at.strftime("%Y-%m-%d %H:%M:%S")%></p>
+        <p class="title"><%= link_to("変更","/news_repost?id=#{article.id}") %></p>
+        <p class="title"><%= link_to("削除","/news_del_conf?id=#{article.id}") %></p>
+    </span>
+    </li>
+    <% end %>
+    </ul>
+    <div><%= paginate @articles %></div>
+    <%= link_to("投稿","/news_post") %>
+    </div>
+</div>
+    

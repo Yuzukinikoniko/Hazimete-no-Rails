@@ -1,0 +1,20 @@
+<% content_for :menu do %>
+    <div class="work_btn">
+        <a href="/news_admin">お知らせ一覧に戻る</a>
+    </div>
+<% end %>
+<% content_for :title do %>
+    お知らせの消去
+<% end %>
+<div class="del_conf">
+    <div class="del_conf__inner">
+    <h2><%= @title %></h2>
+    <p><%= simple_format(@body) %></p>
+    <%= form_tag("/news_delete?id=#{@id}",method: :post) do %>
+    <%= hidden_field_tag 'title',@title %>
+    <%= hidden_field_tag 'body',@body %>
+    <%= submit_tag("削除") %>    
+    <% end %>
+    </div>
+</div>
+    

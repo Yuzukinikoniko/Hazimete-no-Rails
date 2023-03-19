@@ -1,0 +1,18 @@
+<% content_for :menu do %>
+    <div class="work_btn">
+        <a href="/news_admin">お知らせへ戻る</a>
+    </div>
+<% end %>
+<% content_for :title do %>
+    お知らせの新規作成
+<% end %>
+<div class="post">
+    <div class="post__inner">
+    <%= form_tag('/news_confirm',method: :post) do %>
+        <p>タイトル</p><%= text_field_tag('title',"",size:60) %>
+        <p>内容</p><%= text_area_tag 'body',nil,cols: 80, rows:30 %>
+    <%= submit_tag("確認") %>
+    <% end %>
+    </div>
+</div>
+    

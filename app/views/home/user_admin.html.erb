@@ -1,0 +1,41 @@
+<% content_for :menu do %>
+    <div class="work_btn">
+    <a href="/">ホームへ戻る</a>
+    </div>
+<% end %>
+<% content_for :title do %>
+    <%= @user.name %>の詳細情報
+<% end %>
+<div class="user">
+    <div class="user__inner">
+    <ul class="news-list">
+        <li class="item">
+        <span class="label">
+            <p class="date">名前</p>
+            <p class="title"><%= @user.name%></p>
+        </span>
+        </li>
+
+        <li class="item">
+        <span class="label">
+            <p class="date">性別</p>
+            <p class="title"><%= @user.gender==0 ? "男性" : "女性" %></p>
+        </span>
+        </li>
+
+        <li class="item">
+        <span class="label">
+            <p class="date">年齢</p>
+            <p class="title"><%= @user.age %></p>
+        </span>
+        </li>
+
+        <li class="item">
+        <span class="label">
+            <p class="date">管理者権限</p>
+            <p class="title"><%= @user.id==1 ? "あり" : "なし" %></p>
+        </span>
+        </li> 
+    </ul>
+    </div>
+</div>
